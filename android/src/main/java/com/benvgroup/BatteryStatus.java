@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.BatteryManager;
 import android.os.Build;
-import android.util.Log;
 
 public class BatteryStatus extends BroadcastReceiver {
   public static final String ACTION_RESP = "com.benvgroup.intent.action.MESSAGE_PROCESSED";
@@ -28,8 +27,6 @@ public class BatteryStatus extends BroadcastReceiver {
   }
 
   private void updateBatteryData(Intent intent) {
-    Log.d("FullBatteryStatus", "updateBatteryData called");
-
     boolean present = intent.getBooleanExtra(BatteryManager.EXTRA_PRESENT, false);
 
     if (present) {

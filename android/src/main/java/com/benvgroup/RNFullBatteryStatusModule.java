@@ -3,7 +3,6 @@ package com.benvgroup;
 
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v4.content.LocalBroadcastManager;
 
 import com.facebook.react.bridge.LifecycleEventListener;
 import com.facebook.react.bridge.Promise;
@@ -131,7 +130,7 @@ public class RNFullBatteryStatusModule extends ReactContextBaseJavaModule implem
   @ReactMethod
   public void getCapacity(final Promise promise) {
     try {
-      long type = batteryStatusReceiver.getCapacity();
+      float type = (float)batteryStatusReceiver.getCapacity();
       promise.resolve(type);
     } catch (Exception ex) {
       promise.reject("ERR_UNEXPECTED_EXCEPTION", ex);
