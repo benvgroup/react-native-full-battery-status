@@ -7,6 +7,7 @@ import android.os.BatteryManager;
 import android.os.Build;
 
 public class BatteryStatus extends BroadcastReceiver {
+  public static final String ACTION_RESP = "com.benvsoft.intent.action.MESSAGE_PROCESSED";
 
   private String healthStatus;
   private String pluggedStatus = "NONE";
