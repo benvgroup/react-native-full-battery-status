@@ -22,13 +22,12 @@ public class RNFullBatteryStatusModule extends ReactContextBaseJavaModule implem
   }
 
   private void loadBatterySection() {
-    IntentFilter intentFilter = new IntentFilter();
+    IntentFilter intentFilter = new IntentFilter("RNFullBatteryStatus");
     intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
     intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
     intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
-    LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(reactContext);
-    localBroadcastManager.registerReceiver(batteryStatusReceiver, intentFilter);
+    this.getReactApplicationContext().registerReceiver(batteryStatusReceiver, intentFilter);
   }
 
   @Override
