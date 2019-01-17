@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-full-battery-status",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -9,6 +9,7 @@
     "url": "https://github.com/benvgroup/react-native-full-battery-status"
   },
   "homepage": "https://github.com/benvgroup/react-native-full-battery-status",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
