@@ -128,7 +128,7 @@ public class BatteryStatus extends BroadcastReceiver {
 
       capacity = getBatteryCapacity(this.context);
 
-      chargeCounter = getChargeCounter(this.context);
+      chargeCounter = getPropertyChargeCounter(this.context);
     }
 
   }
