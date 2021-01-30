@@ -136,6 +136,15 @@ public class RNFullBatteryStatusModule extends ReactContextBaseJavaModule implem
       promise.reject("ERR_UNEXPECTED_EXCEPTION", ex);
     }
   }
+  @ReactMethod
+  public void getChargeCounter(final Promise promise){
+    try {
+        float type = (float) batteryStatusReceiver.getChargeCounter();
+        promise.resolve(type);
+      } catch (Exception ex) {
+        promise.reject("ERR_UNEXPECTED_EXCEPTION", ex);
+      }
+  }
 
   @Override
   public void onHostResume() {

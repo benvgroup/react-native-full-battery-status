@@ -19,7 +19,7 @@ public class BatteryStatus extends BroadcastReceiver {
   private float temperatureResult;
   private long capacity;
   private Context context;
-
+  private long chargeCounter;
   @Override
   public void onReceive(Context context, Intent intent) {
     this.context = context;
@@ -127,10 +127,21 @@ public class BatteryStatus extends BroadcastReceiver {
       voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0);
 
       capacity = getBatteryCapacity(this.context);
+
+      chargeCounter = getPropertyChargeCounter(this.context);
     }
 
   }
-
+  public long getPropertyChargeCounter(Context ctx) {
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      BatteryManager manager = (BatteryManager) ctx.getSystemService(ctx.BATTERY_SERVICE);
+      return manager.getLongProperty(BatteryManager.BATTERY_PROPERTY_CHARGE_COUNTER);
+    }
+    return 0;
+  }
+  public long getChargeCounter(){
+    return getPropertyChargeCounter(context);
+  }
   public long getBatteryCapacity(Context ctx) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       BatteryManager mBatteryManager = (BatteryManager) ctx.getSystemService(Context.BATTERY_SERVICE);

@@ -42,24 +42,28 @@ or
 ```javascript
 import RNFullBatteryStatus from 'react-native-full-battery-status';
 
-getHealthStatus()
-Returns: // COLD, GOOD, DEAD, OVER_VOLTAGE, OVER_HEAT
+async () => {
+	await getHealthStatus();
+	Returns: // COLD, GOOD, DEAD, OVER_VOLTAGE, OVER_HEAT
 
-getChargingStatus()
-Returns: // CHARGING, DISCHARGING, FULL, NOT_CHARGING, UNKNOWN
+	await getChargingStatus();
+	Returns: // CHARGING, DISCHARGING, FULL, NOT_CHARGING, UNKNOWN
 
-getTechnology()
-Returns: // WIRELESS, AC, USB, NONE
+	await getTechnology();
+	Returns: // WIRELESS, AC, USB, NONE
 
-getBatteryPercent()
-Returns: // eg => 43
+	await getBatteryPercent();
+	Returns: // eg => 43
 
-getTemperature()
-Returns: // eg => 30.5
+	await getTemperature();
+	Returns: // eg => 30.5
 
-getVoltage()
-Returns: // eg => 3851
+	await getVoltage();
+	Returns: // eg => 3851
 
+	await getChargeCounter();
+	Returns: // eg => 1201746 microampere-hours
+}
 
 ```
 
